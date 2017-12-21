@@ -19,7 +19,22 @@ shinyUI(fluidPage(
         tabPanel("Loi de Poisson", 
                  sliderInput(inputId = "lambda", label = 'lambda : ', min = 0,  max = 10, value = 2),
                  plotOutput(outputId = 'poissonPlot')),
-        tabPanel("Loi Normale", plotOutput('normalePlot'))
+        tabPanel("Loi Normale",
+                 sliderInput(inputId = "numberValues",
+                             label = 'Nombre de valeurs : ',
+                             min = 1,  max = 1000,
+                             value = 100),
+                 sliderInput(inputId = "meanNorm",
+                             label = 'Moyenne : ', 
+                             min = -100,
+                             max = 100,
+                             value = 0),
+                 sliderInput(inputId = "sdNorm",
+                             label = 'Ecart type : ',
+                             min = 0, 
+                             max = 10,
+                             value = 1),
+                 plotOutput(outputId = 'normalePlot'))
       )
     )
 ))

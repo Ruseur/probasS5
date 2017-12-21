@@ -8,6 +8,14 @@
 library(shiny)
 
 shinyServer(function(input, output) {
-
+  
+  output$normalePlot <- renderPlot ({
+    values <- rnorm(input$numberValues,
+                    input$meanNorm,
+                    input$sdNorm);
+    hist( values,
+          main = "Histogramme de la loi normale",
+          xlab = "")
+  })
 
 })
