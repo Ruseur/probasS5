@@ -9,5 +9,11 @@ library(shiny)
 
 shinyServer(function(input, output) {
 
+  output$poissonPlot <- renderPlot({
+    x <- rpois(input$n, input$lambda)
+    hist(x, border = "red",
+         main = "Histogramme de la loi de Poisson", 
+         xlab = "")
+  })
 
 })
