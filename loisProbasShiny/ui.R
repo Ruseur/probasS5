@@ -16,8 +16,10 @@ shinyUI(fluidPage(
     # Show a plot of the generated distribution
     mainPanel(
       tabsetPanel(
-        tabPanel("Lois de Poisson", plotOutput('poissonPlot')),
-        tabPanel("Lois Normale", plotOutput('normalePlot'))
+        tabPanel("Loi de Poisson", 
+                 sliderInput(inputId = "lambda", label = 'lambda : ', min = 0,  max = 10, value = 2),
+                 plotOutput(outputId = 'poissonPlot')),
+        tabPanel("Loi Normale", plotOutput('normalePlot'))
       )
     )
 ))
