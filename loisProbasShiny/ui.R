@@ -19,7 +19,8 @@ shinyUI(fluidPage(
         tabPanel("Loi de Poisson", 
                  sliderInput(inputId = "n", label = 'Nombre de valeurs : ', min = 100,  max = 10000, value = 25),
                  sliderInput(inputId = "lambda", label = 'lambda : ', min = 1,  max = 10, value = 2),
-                 plotOutput(outputId = 'poissonPlot')),
+                 plotOutput(outputId = 'poissonPlot'),
+                 actionButton("savePoisson", "Sauvegarder les données")),
         tabPanel("Loi Normale",
                  sliderInput(inputId = "numberValues",
                              label = 'Nombre de valeurs : ',
@@ -35,7 +36,8 @@ shinyUI(fluidPage(
                              min = 0, 
                              max = 10,
                              value = 1),
-                 plotOutput(outputId = 'normalePlot'))
+                 plotOutput(outputId = 'normalePlot'),
+                 actionButton("saveNormale", "Sauvegarder les données"))
       )
     )
 ))

@@ -16,12 +16,19 @@ shinyServer(function(input, output) {
     hist( values,
           main = "Histogramme de la loi normale",
           xlab = "")
+    observeEvent(input$saveNormale, {
+      write.csv2(x = values, file = file.path("data", "saveNormale.csv"), row.names = FALSE, quote = TRUE)
+    })
+    
   })
 
   output$poissonPlot <- renderPlot({
-    x <- rpois(input$n, input$lambda)
-    hist(x, border = "red",
+    loi <- rpois(input$n, input$lambda)
+    hist(loi, border = "red",
          main = "Histogramme de la loi de Poisson", 
          xlab = "")
+    observeEvent(input$savePoisson, {
+      write.csv2(x = loi, file = file.path("data", "savePoisson.csv"), row.names = FALSE, quote = TRUE)
+    })
   })
 })
